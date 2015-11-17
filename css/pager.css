@@ -1,0 +1,112 @@
+#pager{
+	clear:both;
+	color:#666;
+	padding:20px;
+	font-size:14px;
+}
+#pager a{
+	float: left;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	margin-right: 8px;
+	text-align: center;
+/*	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;*/
+	cursor: pointer;
+	text-decoration:none;
+	color:#666;
+}
+
+#pager span.disabled{
+	float: left;
+	display: inline;
+	padding: 3px 10px 3px 10px;
+	margin-right: 10px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border:1px solid #DFDFDF;
+	background-color:#FFF;
+	color:#DFDFDF;
+}
+#pager span.curr{
+	float: left;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	margin-right: 8px;
+	color: #39a030;
+}
+#pager a:hover{
+	background-color:#9DD8B1; 
+	color:#fff;
+}
+#pager span.normalsize{
+}
+#pager_gopage_wrap{
+	position:relative;
+	left:0px;
+	top:0px;
+}
+#pager_btn_go {
+	width:44px;
+	height:18px;
+	border:0px;
+	overflow:hidden;
+	line-height:140%;
+	padding:0px;
+	margin:0px;
+	text-align:center;
+	cursor:pointer;
+	background-color:#31ACE2;
+	color:#FFF;
+	position:absolute;
+	left:0px;
+	top:-2px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	display:none;
+}
+#pager_btn_go_input{
+	width:36px;
+	height:14px;
+	color:#999;
+	text-align:center;
+	margin-left:1px;
+	margin-right:1px;
+	border:1px solid #DFDFDF;
+	position:relative;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	left:0px;
+	top:0px;
+	outline:none;
+}
+
+#pager_btn_go_input.focus{
+	border-color:#31ACE2;
+}
+
+#pager .pageBtnWrap{
+	float:right;
+}
+#pager .infoTextAndGoPageBtnWrap{
+	float:right;
+}
+#pager .spanDot{
+	float:left;
+	margin-right:5px;
+}
+
+#pager .currPageNum{
+	color:#FD7F4D;
+}
+
+#pager .infoTextAndGoPageBtnWrap{
+	padding-top:5px;
+}

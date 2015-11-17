@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Banner</title>
+<style type="text/css">
+	#banner li {
+		display: none;
+	}
+	#banner .current{
+		display: block;
+	}
+	#point i{
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		background: red;
+		margin-right: 10px;
+	}
+	#point .current{
+		background: green;
+	}
+</style>
+<script>
+
+window.onload = function(){
+//全局变量
+	var CurrIndex = 0;
+	var points = document.getElementById("point").getElementsByTagName("i");
+	var lis = document.getElementById("banner").getElementsByTagName("li");
+	var ImgLen = document.getElementById("banner").getElementsByTagName("li").length;//设置图片数量
+	var ImgWidth = document.getElementById("banner").offsetWidth; // 获得图片容器宽度
+
+	
+	//定时器,时间间隔为3s
+	var AutoPlayImg = setInterval(function(){
+		if(CurrIndex < ImgLen-1){
+			CurrIndex++;
+		} else {
+			CurrIndex = 0;
+		}
+		//调用变换处理函数
+		ChangeTo(CurrIndex);
+	},5000);
+	
+	//重置定时器函数
+	function AutoPlayImgAgain(){
+		setInterval(function(){
+		if(CurrIndex < ImgLen-1){
+			CurrIndex++;
+		} else {
+			CurrIndex = 0;
+		}
+		//调用变换处理函数
+		ChangeTo(CurrIndex);
+	},5000);
+	}
+	
+	//变换处理函数
+	function ChangeTo(num){
+		var goLeft = num * ImgWidth;
+		lis[num].style.left = "-" + goLeft + "px";
+		for(var i=0;i<lis.length;i++){
+			lis[i].className = "";
+			points[i].className = "";
+		}
+		lis[num].className = "current";
+		points[num].className = "current";
+	}
+
+	
+	//鼠标移动到banner区域显示控制按钮
+	for (var i=0;i<points.length;i++){
+		points[i].onmouseenter= function(event){
+			event = event||window.event;
+			clearInterval(AutoPlayImg);//清除定时器
+			for (var i = 0; i < points.length; i++) {
+				points[i].index = i;
+				points[i].className = "";
+			}
+			points[this.index].className = "current";
+			ChangeTo(this.index);
+			CurrIndex = this.index;
+			
+		};
+		points[i].onmouseleave = function(event){
+			AutoPlayImgAgain();//重新开启定时器
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+			<ul id="banner">
+				<a href="#" title="">
+					<li class="current"><img src="images/1.jpg" alt="" /></li>
+				</a>
+				<a href="#" title="">
+					<li><img src="images/2.jpg" alt="" /></li>
+				</a>
+				<a href="#" title="">
+					<li><img src="images/3.jpg" alt="" /></li>
+				</a>
+			</ul>
+			<div id="point">
+				<i class="current"> </i> <i> </i><i> </i>
+			</div>
+</body>
+</html>

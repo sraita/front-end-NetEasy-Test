@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>tips Demo</title>
+	<script type="text/javascript" src="tips.js"></script>
+	<style type="text/css">
+	*{margin: 0;padding: 0;}
+	#mask{
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(000,000,000,0.3);
+		z-index: 9;
+	}
+	#tips-messager{
+		position: absolute;
+		display: inline-block;
+		padding: 10px;
+		height: 32px;
+		color:#666666;
+		background: #efefef;
+		border: 3px #eeeeee solid;
+		border-color: rgba(255,255,255,.7);
+		box-shadow: 2px 2px 4px#dddddd;
+		border-radius: 4px;
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+		z-index: 999;
+	}
+	#tips-messager img{
+		border: none;
+		float: left;
+		margin-right: 10px;
+	}
+	#tips-messager p{
+		line-height: 32px;
+	}
+	</style>
+</head>
+<body>
+
+	<script type="text/javascript">
+		window.onload = function(){
+			var mask = document.createElement("div");
+				mask.setAttribute("id","mask");
+			dialog.Messager("success","成功了！",3000);
+		}
+	</script>
+	dddddddddd<br/>
+	<br/>
+	dddddddddd<br/>
+	<br/>
+	dddddddddd<br/>
+	dddddddddd<br/>
+	dddddddddd<br/>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>网易教育产品部</title>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/pager.css" />
+		<script type="text/javascript" src="js/base.js"></script>
+		<script type="text/javascript" src="js/md5.js" ></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/pager.js" ></script>
+		<script>
+		window.onload = function(){
+			getCourse(1,10);
+			//listDis();
+			var totalPage = 20;
+	var totalRecords = 390;
+	var pageNo = 2;
+	if(!pageNo){
+		pageNo = 1;
+	}
+	//生成分页
+	//有些参数是可选的，比如lang，若不传有默认值
+	pager.generPageHtml({
+		pno : pageNo,
+		//总页码
+		total : totalPage,
+		//总数据条数
+		totalRecords : totalRecords,
+		totalRecords : totalRecords,
+		mode : 'click',//默认值是link，可选link或者click
+		//链接前部
+		//hrefFormer : 'pager_test_orange_color',
+		//链接尾部
+		//hrefLatter : '.html',
+		//getLink : function(n){
+		//	return this.hrefFormer + this.hrefLatter + "?pno="+n;
+		//},
+		click : function(n){
+			// do something
+			//手动选中按钮
+			this.selectPage(n);
+			return false;
+		},
+		lang :{
+			prePageText :'<',
+			nextPageText :'>'
+		}
+		/*
+		,lang				: {
+			firstPageText			: '首页',
+			firstPageTipText		: '首页',
+			lastPageText			: '尾页',
+			lastPageTipText			: '尾页',
+			prePageText				: '上一页',
+			prePageTipText			: '上一页',
+			nextPageText			: '下一页',
+			nextPageTipText			: '下一页',
+			totalPageBeforeText		: '共',
+			totalPageAfterText		: '页',
+			currPageBeforeText		: '当前第',
+			currPageAfterText		: '页',
+			totalInfoSplitStr		: '/',
+			totalRecordsBeforeText	: '共',
+			totalRecordsAfterText	: '条数据',
+			gopageBeforeText		: '&nbsp;转到',
+			gopageButtonOkText		: '确定',
+			gopageAfterText			: '页',
+			buttonTipBeforeText		: '第',
+			buttonTipAfterText		: '页'
+		}*/
+		
+		//,
+		//mode : 'click',//默认值是link，可选link或者click
+		//click : function(n){
+		//	this.selectPage(n);
+		//  return false;
+		//}
+	});
+		}
+		</script>
+	</head>
+
+	<body>
+		<!--Notice Start 异步-->
+		<div id="notice">
+			<div class="notice-content">
+				<p>网易云课堂微专业，帮助你掌握专业技能，令你求职或加薪多一份独特优势！
+					<a href="#">立即查看></a>
+					<a href="#" class="close"><i></i>不再提醒</a>
+				</p>
+			</div>
+
+		</div>
+		<!--导航区域 Start-->
+		<div id="header" class="clearfix">
+			<div class="logo">
+				<img src="images/logo.png" alt="网易教育产品部" />
+				<span id="follow" class="unfollow"></span><span>粉丝  45</span>
+			</div>
+			<ul>
+				<a href="http://open.163.com/" target="_blank" title="网易公开课">
+					<li>网易公开课</li>
+				</a>
+				<a href="http://study.163.com/" target="_blank" title="云课堂">
+					<li>云课堂</li>
+				</a>
+				<a href="http://www.icourse163.org/" target="_blank" title="中国大学MOOC">
+					<li>中国大学MOOC</li>
+				</a>
+				<span class="search"></span>
+			</ul>
+		</div>
+		<!--导航区域 End-->
+		<!--banner Start-->
+		<div id="banner">
+			<ul class="banner">
+				<a href="#" title="">
+					<li class="current"><img src="images/banner/banner1.jpg" alt="" /></li>
+				</a>
+				<a href="#" title="">
+					<li><img src="images/banner/banner2.jpg" alt="" /></li>
+				</a>
+				<a href="#" title="">
+					<li><img src="images/banner/banner3.jpg" alt="" /></li>
+				</a>
+			</ul>
+			<div class="point">
+				<i class="current"> </i> <i></i><i></i>
+			</div>
+			<!--三个产品-->
+			<ul class="product">
+				<li>
+					<div class="product-logo">
+						<img src="images/gongkaike.png" alt="网易公开课" />
+					</div>
+					<h2>网易公开课</h2>
+					<p>推出国内外名校公开课，涉及广泛的学科，名校老师认 真讲解深度剖析，网易视频公开课频道搭建起强有力 的网络视频教学平台。
+					</p>
+					<a href="#">了解更多 ></a>
+				</li>
+				<li>
+					<div class="product-logo">
+						<img src="images/yunketang.png" alt="云课堂" />
+					</div>
+					<h2>网易公开课</h2>
+					<p>推出国内外名校公开课，涉及广泛的学科，名校老师认 真讲解深度剖析，网易视频公开课频道搭建起强有力 的网络视频教学平台。
+					</p>
+					<a href="#">了解更多 ></a>
+				</li>
+				<li>
+					<div class="product-logo">
+						<img src="images/MOOC.png" alt="MOOC" />
+					</div>
+					<h2>网易公开课</h2>
+					<p>推出国内外名校公开课，涉及广泛的学科，名校老师认 真讲解深度剖析，网易视频公开课频道搭建起强有力 的网络视频教学平台。
+					</p>
+					<a href="#">了解更多 ></a>
+				</li>
+			</ul>
+		</div>
+		<!--Banner End-->
+		<!--WorkSpace Start-->
+		<div id="workSpace">
+			<ul>
+				<li>
+					<a href="#" title="">
+						<img src="images/workspace1.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#" title="">
+						<img src="images/workspace2.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#" title="">
+						<img src="images/workspace3.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#" title="">
+						<img src="images/workspace4.png" />
+					</a>
+				</li>
+				<li>
+					<a href="#" title="">
+						<img src="images/workspace5.png" />
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!--WorkSpace End-->
+		<!--main Start-->
+		<div id="main" class="">
+			<div class="content clearfix">
+				<!--左侧内容区域-->
+				<div class="left">
+					<!--tab 内容循环，异步-->
+					<div id="tab-bar" class="tab-bar">
+						<a class="current" href="#tab-bar">产品设计</a>
+						<a href="#tab-bar">编程语言</a>
+					</div>
+					<div id="tab-content" class="tab-content">
+						<ul>
+							<li data-name="和秋叶一起学职场技能" data-middle-photo-url="images/图层 407.png" data-category-name="办公技能" data-learner-count="123" data-provider="秋叶" data-description="适用人群：最适合即将实习、求职、
+								就职的大学生，入职一、二三年的新人。别以为那些职场老人都知道！">
+								<img src="images/图层 407.png" alt="" />
+								<h3>混音全揭秘混音全揭秘混音全揭秘全揭秘混音全揭秘</h3>
+								<p>音频帮</p>
+								<p class="num"><i></i>510</p>
+								<p class="price">￥800.00</p>
+								<!--							<div id="tab-card">
+								<div class="base-info">
+									<img id="middlePhotoUrl" src="images/图层 407.png"/>
+									<h3 id="name" >和秋叶一起学职场技能</h3>
+									<p id="learnerCount" class="learnerCount">123</p>
+									<p id="provider" class="provider">发布者：秋叶</p>
+									<p id="categoryName" class="categoryName">分类：办公技能</p>
+								</div>
+								<p id="description"  class="description">适用人群：最适合即将实习、求职、
+									就职的大学生，入职一、二三年的新人。别以为那些职场老人都知道！</p>
+							</div>-->
+							</li>
+							<li>
+								<img src="images/图层 407.png" alt="" />
+								<h3>混音全揭秘混音全揭秘混音全揭秘全揭秘混音全揭秘</h3>
+								<p>音频帮</p>
+								<p class="num"><i></i>510</p>
+								<p class="price">￥800.00</p>
+							</li>
+							<li>
+								<img src="images/图层 407.png" alt="" />
+								<h3>混音全揭秘混音全揭秘混音全揭秘全揭秘混音全揭秘</h3>
+								<p>音频帮</p>
+								<p class="num"><i></i>510</p>
+								<p class="price">￥800.00</p>
+							</li>
+							<li>
+								<img src="images/图层 407.png" alt="" />
+								<h3>混音全揭秘混音全揭秘混音全揭秘全揭秘混音全揭秘</h3>
+								<p>音频帮</p>
+								<p class="num"><i></i>510</p>
+								<p class="price">￥800.00</p>
+							</li>
+
+						</ul>
+						<!--编程语言-->
+						<ul style="display: none;">
+							<li data-name="和秋叶一起学职场技能" data-middle-photo-url="images/图层 407.png" data-category-name="办公技能" data-learner-count="123" data-provider="秋叶" data-description="适用人群：最适合即将实习、求职、
+								就职的大学生，入职一、二三年的新人。别以为那些职场老人都知道！">
+								<img src="images/图层 407.png" alt="" />
+								<h3>混音全揭秘混音全揭秘混音全揭秘全揭秘混音全揭秘</h3>
+								<p>音频帮</p>
+								<p class="num"><i></i>510</p>
+								<p class="price">￥800.00</p>
+							</li>
+							<li data-name="和秋叶一起学职场技能" data-middle-photo-url="images/图层 407.png" data-category-name="办公技能" data-learner-count="123" data-provider="秋叶" data-description="适用人群：最适合即将实习、求职、
+								就职的大学生，入职一、二三年的新人。别以为那些职场老人都知道！">
+								<img src="images/图层 407.png" alt="" />
+								<h3>混音全揭秘混音全揭秘混音全揭秘全揭秘混音全揭秘</h3>
+								<p>音频帮</p>
+								<p class="num"><i></i>510</p>
+								<p class="price">￥800.00</p>
+							</li>
+							<li data-name="和秋叶一起学职场技能" data-middle-photo-url="images/图层 407.png" data-category-name="办公技能" data-learner-count="123" data-provider="秋叶" data-description="适用人群：最适合即将实习、求职、
+								就职的大学生，入职一、二三年的新人。别以为那些职场老人都知道！">
+								<img src="images/图层 407.png" alt="" />
+								<h3>混音全揭秘混音全揭秘混音全揭秘全揭秘混音全揭秘</h3>
+								<p>音频帮</p>
+								<p class="num"><i></i>510</p>
+								<p class="price">￥800.00</p>
+							</li>
+							<li data-name="和秋叶一起学职场技能" data-middle-photo-url="images/图层 407.png" data-category-name="办公技能" data-learner-count="123" data-provider="秋叶" data-description="适用人群：最适合即将实习、求职、
+								就职的大学生，入职一、二三年的新人。别以为那些职场老人都知道！">
+								<img src="images/图层 407.png" alt="" />
+								<h3>混音全揭秘混音全揭秘混音全揭秘全揭秘混音全揭秘</h3>
+								<p>音频帮</p>
+								<p class="num"><i></i>510</p>
+								<p class="price">￥800.00</p>
+							</li>
+							<li data-name="和秋叶一起学职场技能" data-middle-photo-url="images/图层 407.png" data-category-name="办公技能" data-learner-count="123" data-provider="秋叶" data-description="适用人群：最适合即将实习、求职、
+								就职的大学生，入职一、二三年的新人。别以为那些职场老人都知道！">
+								<img src="images/图层 407.png" alt="" />
+								<h3>混音全揭秘混音全揭秘混音全揭秘全揭秘混音全揭秘</h3>
+								<p>音频帮</p>
+								<p class="num"><i></i>510</p>
+								<p class="price">￥800.00</p>
+							</li>
+							<li data-name="和秋叶一起学职场技能" data-middle-photo-url="images/图层 407.png" data-category-name="办公技能" data-learner-count="123" data-provider="秋叶" data-description="适用人群：最适合即将实习、求职、
+								就职的大学生，入职一、二三年的新人。别以为那些职场老人都知道！">
+								<img src="images/图层 407.png" alt="" />
+								<h3>混音全揭秘混音全揭秘混音全揭秘全揭秘混音全揭秘</h3>
+								<p>音频帮</p>
+								<p class="num"><i></i>510</p>
+								<p class="price">￥800.00</p>
+							</li>
+						</ul>
+						<!--分页控件-->
+						<div id="pager">
+						</div>
+					</div>
+				</div>
+				<!--右侧边栏-->
+				<div class="right">
+					<h2>机构介绍</h2>
+					<div id="video">
+						<p>观看下面的视频来了解吧：</p>
+						<img src="images/video.png" alt="机构介绍"/>
+						<div class="video-play"></div>
+					</div>
+
+					<h2>最热排行</h2>
+					<ul id="hot-list">
+						<!--列表循环-->
+						<!--					<li>
+						<img src="images/图层 396 副本.png"/>
+						<h3>舞曲揭秘音乐揭秘音乐揭秘</h3>
+						<span><i></i>21567</span>
+					</li>-->
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--main End-->
+		<!--footer Start-->
+		<div id="footer">
+			<ul>
+				<li class="about">
+					<a href="#" title="">
+						<img src="images/logo2.png" alt="" />
+					</a>
+					<p>©2014 icourse163.org 浙ICP备08114786号-1</p>
+					<p>icourses.cn 京ICP备12020869号-2 京公网安备110102000459-2</p>
+				</li>
+				<li class="links">
+					<h4>友情链接：</h4>
+					<a href="#">网易公开课</a>
+					<a href="#">网易云课堂</a>
+					<a href="#">中国大学MOOC</a>
+				</li>
+				<li class="us">
+					<h4>我们：</h4>
+					<a href="#">关于</a>
+					<a href="#">联系</a>
+					<a href="#">关注</a>
+				</li>
+				<li class="more">
+					<h4>更多：</h4>
+					<a href="#">常见问题</a>
+					<a href="#">意见反馈</a>
+				</li>
+			</ul>
+		</div>
+		<!--mask 遮罩-->
+		<div id="mask"></div>
+		<!--登录浮层-->
+		<div id="login">
+			<a href="javascript:void(0)" title="关闭" onclick="closeLayout(this)"></a>
+			<h2>登录云课堂</h2>
+			<form id="loginForm" action="http://study.163.com/webDev/login.htm" method="get">
+				<input type="text" name="userName" placeholder="账号" />
+				<input type="password" name="password" placeholder="密码" />
+				<input type="submit" value="登&nbsp;录" />
+			</form>
+		</div>
+		<!--视频播放浮层-->
+		<div id="videoLayout">
+			<a href="javascript:void(0)" title="关闭" onclick="closeLayout(this)"></a>
+			<h2>请观看下面的视频</h2>
+			<video controls contenteditable="true">
+				<source src="http://mov.bn.netease.com/open-movie/nos/mp4/2014/12/30/SADQ86F5S_shd.mp4" type="video/mp4"></source>
+				<source src="test/test.mp4" type="video/mp4"></source>
+			</video>
+		</div>
+		<!--课程信息卡片JS-->
+		<script>
+			 /*ID选择器封装*/
+			function $(id) {
+					return document.getElementById(id);
+				}
+				// 阻止表单默认提交
+			var loginForm = document.forms[0];
+			EventUtil.addHandler(loginForm, "submit", function(event) {
+				// 取得事件对象
+				event = EventUtil.getEvent(event);
+				// 阻止默认事件
+				EventUtil.preventDefault(event);
+				// 调用login处理函数
+				doLogin();
+			});
+			/*关注*/
+			var follow = $("follow");
+			EventUtil.addHandler(follow, "click", function(event) {
+				event = EventUtil.getEvent(event);
+				var target = EventUtil.getTarget(event);
+				if (this.className == "unfollow") { //初始判断
+					if (getCookie("loginSuc") == 1) {
+						if (getCookie("followSuc") == 1) {
+							target.setAttribute("class", "follow");
+						} else {
+							target.setAttribute("class", "unfollow");
+						}
+					} else { // 条件不成立弹出登录窗口
+						target.setAttribute("class", "unfollow");
+						$("mask").style.display = "block";
+						$("login").style.display = "block";
+					}
+				} else { //取消关注
+					target.setAttribute("class", "unfollow");
+					setCookie("followSuc", "", 0);
+					setCookie("loginSuc", "", 0);
+				}
+			});
+			/*课程卡片*/
+			function listDis(){
+				var lis = $("tab-content").getElementsByTagName("li");
+				for (var i = 0, li; li = lis[i]; i++) {
+					EventUtil.addHandler(li, "mouseenter", function(event) {
+						event = EventUtil.getEvent(event);
+						var card = EventUtil.getTarget(event);
+						var data = card.dataset;
+						var cardContent = document.createElement("div");
+						cardContent.setAttribute("id", "tab-card");
+						cardContent.innerHTML =
+							'<div class="base-info">' +
+							'<img src="' + data.middlePhotoUrl + '"/>' +
+							'<h3>' + data.name + '</h3>' +
+							'<p class="learnerCount"><i></i>' + data.learnerCount + '人在学</p>' +
+							'<p class="provider">发布者：' + data.provider + '</p>' +
+							'<p class="categoryName">分类：' + data.categoryName + '</p>' +
+							'</div>' +
+							'<p class="description">' + data.description + '</p>';
+						card.appendChild(cardContent);
+					});
+					EventUtil.addHandler(li, "mouseleave", function(event) {
+						event = EventUtil.getEvent(event);
+						var card = EventUtil.getTarget(event);
+						card.removeChild(card.lastChild);
+					});
+				}
+			}
+			
+			/*tabs切换*/
+			var tabBars = $("tab-bar").children;
+			var tabContents = $("tab-content").children;
+			var type; // 设置筛选类型
+			var totalPage = 10;//设置总页数
+			for (var i = 0; i < tabBars.length; i++) {
+				EventUtil.addHandler(tabBars[i], "click", function(event) {
+					for (var i = 0; i < tabBars.length; i++) {
+						tabBars[i].index = i;
+						tabBars[i].className = "";
+						tabContents[i].style.display = "none";
+					}
+					type = (this.index + 1) * 10;
+					this.className = "current";
+					tabContents[this.index].style.display = "block";
+					getCourse(1, type);
+				});
+			}
+			/*视频播放*/
+			$("video").addEventListener("click", function() {
+				$("mask").style.display = "block";
+				$("videoLayout").style.display = "block";
+			});
+			
+			/*分页控件*/
+			var pages = $("pagination").children;
+			var currPage = $("pagination").getElementsByClassName("current")[0].innerHTML;
+			var firstPager = Number(pages[1].innerHTML);//最前一页页吗
+			var LastPager = Number(pages[pages.length-2].innerHTML);//最后一页页码
+			var addPage = document.createElement("a"); //添加新页控件
+			
+			EventUtil.addHandler(pages[0],"click",function(event){//前一页
+				if(currPage>1){
+					currPage--;
+				}
+				else{
+					currPage = 1;
+				}
+				getCourse(currPage,type);
+				
+				console.log(currPage);
+			});
+			for (var i = 1, page; page = pages[i],i<pages.length-1; i++) {//页码
+				EventUtil.addHandler(page,'click',function(event){
+					event = EventUtil.getEvent(event);
+					page = EventUtil.getTarget(event);
+					for(var i =1 ;i<pages.length-1;i++){
+						pages[i].removeAttribute("class");
+					}
+					page.setAttribute("class","current");
+					currPage = page.innerHTML;
+					getCourse(currPage,type);
+					console.log(currPage,type);
+				});
+			}
+			EventUtil.addHandler(pages[pages.length-1],"click",function(event){// 后一页
+				if(currPage>totalPage-1){
+					currPage = totalPage;
+					LastPager = totalPage;
+				} else {
+					currPage++;			
+					LastPager++;
+					if(pages.length>=5){
+						$("pagination").removeChild(pages[0]);
+					}
+					
+					
+					addPage.innerHTML = LastPager;
+					$("pagination").insertBefore(addPage,pages[pages.length-2].nextSibling);
+					
+				}
+				getCourse(currPage,type);
+				console.log(currPage);
+			});
+		</script>
+	</body>
+
+</html>
