@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>选择器Demo</title>
+	<script type="text/javascript" src="selector.js"></script>
+</head>
+<body>
+	<div id="div1">div选择器
+		<ul >
+			<li class="ul">1</li>
+			<li class="ul">2</li>
+			<li class="ul">3</li>
+			<li class="ul">4</li>
+		</ul>
+		<dt>
+			<dd>d1</dd>
+			<dd>d2</dd>
+			<dd>d3</dd>
+		</dt>
+	</div>
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+		var div = $("#div1");
+		var lis = $(".ul",div);
+		var dds = $("dd");
+		console.log(div);
+		console.log(lis);
+		console.log(dds);
+	}
+</script>
+</html>

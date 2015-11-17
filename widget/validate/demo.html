@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+	<title>选择器Demo</title>
+	<script type="text/javascript" src="validate.js"></script>
+</head>
+<body>
+<input id="str" type = "text"/><br/>
+<input type="text" id="type">
+<input type="button" id="btn" value="验证结果">
+</body>
+<script type="text/javascript">
+		
+				var btn = document.getElementById("btn");
+		btn.onclick = function(){
+			var str = document.getElementById("str").value;
+		var type = document.getElementById("type").value;
+			console.log(str);
+			console.log(type);
+			alert(validate(str,type));
+		}
+
+</script>
+</html>
